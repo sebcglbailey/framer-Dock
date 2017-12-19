@@ -33,6 +33,22 @@ class exports.Dock extends Layer
 			print "Not enough space to add the layer"
 			return
 
+	insertLayer: (layer, position) ->
+		position ?= "fill"
+
+		if @options.availableFrame.x > 0 && @options.availableFrame.y > 0 && @options.availableFrame.width > 0 && @options.availableFrame.height > 0 && layer?
+			layer.position = position
+			layer.parent = @
+
+			@drawLayer position, layer	
+
+		else if layer?
+			print "Not enough space to add the layer"
+			return
+
+		else
+			print "Please input a layer to add the to Dock"
+
 	drawLayer: (position, layer) ->
 		if position == "top"
 			layer.props =

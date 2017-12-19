@@ -53,6 +53,25 @@ dock.addLayer
 
 * <code>color</code> - The background color of the new layer. Also accepts <code>backgroundColor</code> as an argument.
 
+## Insert an existing layer to the Dock
+
+dock.insertLayer(layer, position)
+
+### Arguments
+
+* <code>layer</code> - The layer you will be inserting into the dock. This layer will stretch to the full width/height of the dock depending on the position.
+* <code>position</code> - The positioning of the element, "top", "left", "bottom", "right" (optional). Default: "fill"
+
+### Example
+
+```
+layer = new Layer
+	height: 50
+	backgroundColor: "yellow"
+
+dock.insertLayer layer, "bottom"
+```
+
 ## Set the margin
 
 dock.margin = {value}
