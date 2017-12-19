@@ -1,0 +1,8 @@
+{
+    "name": "Dock",
+    "description": "Create a dock layer in Framer, and add layers to it based on position and margin.",
+    "author": "Sebastian Bailey",
+    "require": "{Dock} = require 'Dock'",
+    "install": "Dock.coffee",
+    "example": "snippet.coffee"
+}
