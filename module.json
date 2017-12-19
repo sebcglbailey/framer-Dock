@@ -4,5 +4,6 @@
     "author": "Sebastian Bailey",
     "require": "{Dock} = require 'Dock'",
     "install": "Dock.coffee",
-    "example": "snippet.coffee"
+    "example": "snippet.coffee",
+    "thumb": "Thumb.png"
 }
