@@ -6,11 +6,7 @@ yellow = new Layer
 
 
 dock = new Dock
-	width: 710
-	height: 710
-	x: 5
-	y: 5
-	backgroundColor: null
+	size: Screen
 
 dock.addLayer "left",
 	color: "red"

@@ -12,6 +12,8 @@ class exports.Dock extends Layer
 			height: @height - @margin*2
 
 	addLayer: (position, options={}) ->
+		unless @options.backgroundColor? then @backgroundColor = null
+
 		if typeof position == "object"
 			options = position
 			position = "fill"
@@ -22,7 +24,7 @@ class exports.Dock extends Layer
 	
 			options.width ?= 200
 			options.height ?= 200
-			options.backgroundColor ?= options.color || Utils.randomColor()
+			options.backgroundColor ?= options.color || new Color("#222").alpha(0.5)
 			layer.props = options
 
 			layer.position = position
@@ -30,24 +32,24 @@ class exports.Dock extends Layer
 			@drawLayer position, layer
 
 		else
-			print "Not enough space to add the layer"
+			Utils.throwInStudioOrWarnInProduction "Not enough space to add layer in the canvas"
 			return
 
-	insertLayer: (layer, position) ->
-		position ?= "fill"
+	insertLayer: (layer, position = "top") ->
+		unless @options.backgroundColor? then @backgroundColor = null
 
 		if @options.availableFrame.x > 0 && @options.availableFrame.y > 0 && @options.availableFrame.width > 0 && @options.availableFrame.height > 0 && layer?
 			layer.position = position
 			layer.parent = @
 
-			@drawLayer position, layer	
+			@drawLayer position, layer
 
 		else if layer?
-			print "Not enough space to add the layer"
+			Utils.throwInStudioOrWarnInProduction "Not enough space to add this layer in the canvas"
 			return
 
 		else
-			print "Please input a layer to add the to Dock"
+			Utils.throwInStudioOrWarnInProduction "Cannot add layer undefined to the Dock"
 
 	drawLayer: (position, layer) ->
 		if position == "top"

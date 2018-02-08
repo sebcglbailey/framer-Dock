@@ -85,27 +85,32 @@ dock.margin = 40
 ![Example](Example.png)
 
 ```
+{Dock} = require "Dock"
+
+yellow = new Layer
+	backgroundColor: "yellow"
+	height: 300
+
 dock = new Dock
-  size: Screen
-  backgroundColor: null
-  margin: 20
+	size: Screen
+	margin: 20
 
 dock.addLayer "left",
-  color: "red"
-  width: 100
+	color: "red"
+	width: 100
 
 dock.addLayer "top",
-  color: "green"
+	color: "green"
 
 dock.addLayer "top",
-  color: "black"
-  height: 50
+	color: "black"
+	height: 50
 
 dock.addLayer "right",
-  backgroundColor: "blue"
+	backgroundColor: "blue"
 
-dock.addLayer "bottom",
-  backgroundColor: "yellow"
-  height: 300
+dock.insertLayer yellow, "bottom"
 
 dock.addLayer()
+```
+
